@@ -1,19 +1,20 @@
 #!/bin/bash
 
-# Check if a file argument is provided
-if [ -z "$1" ]; then
-  echo "Usage: $0 filename"
+# Check if the required arguments are provided
+if [ -z "$1" ] || [ -z "$2" ]; then
+  echo "Usage: $0 filename num_lines"
   exit 1
 fi
 
 # Variables
 file="$1"
+num_lines="$2"
 
-# Display first three lines
-head -n 3 "$file"
+# Display the first `num_lines` lines
+head -n "$num_lines" "$file"
 
 # Print separator
 echo "..."
 
-# Display last three lines
-tail -n 3 "$file"
+# Display the last `num_lines` lines
+tail -n "$num_lines" "$file"
